@@ -57,20 +57,12 @@ class TableViewController: UITableViewController {
         dataTableView.dataSource = self
         print("refresh")
     }
-    
-    func sendData(){
-        let sending = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
-        detailsVCPrintedJson = sending.sendData(nameInput: "Jack Bridge", salaryInput: 67000, ageInput: 34)
-        sending.updateData()
-        sending.deleteData()
-    }
-    
 
     @IBAction func addData(_ sender: Any) {
-        sendData()
-//        DispatchQueue.main.async {
-//            self.performSegue(withIdentifier: "InfoRecievedViewController", sender: self)
-//        }
+//        let sending = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
+//        detailsVCPrintedJson = sending.sendData(nameInput: "Jack Bridge", salaryInput: 67000, ageInput: 34)
+//        sending.updateData()
+//        sending.deleteData()
     }
     
 }
@@ -99,17 +91,36 @@ extension TableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "InfoRecievedViewController" {
-            let destViewController = segue.destination as? InfoRecievedViewController
-            destViewController?.jsonResults = detailsVCPrintedJson
-        }
         if segue.identifier == "DetailsViewController" {
             guard let destinationVC = segue.destination as? DetailsViewController else {
                   return
                 }
             destinationVC.data = employeeData
         }
-        
-            
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dataArrayVariable.remove(at: indexPath.row)
+            dataTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    
+}
+
+
+extension TableViewController: DataAdditionsProtocol {
+    
+    func sendDataToStore(_ name: String, _ salary: Int, _ age: Int) {
+        var temp = [DataFetched]()
+        temp[0].age = age
+        temp[0].name = name
+        temp[0].salary = salary
+        temp[0].id = dataArrayVariable.count + 1
+        temp[0].img  = ""
+        self.dataArrayVariable.append(temp[0])
+        self.dataTableView.reloadData()
+    }
+    
 }

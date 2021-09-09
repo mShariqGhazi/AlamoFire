@@ -9,35 +9,8 @@ import Foundation
 
 struct DataArray: Codable {
     
-//    var id: String?
-//    var name: String
-//    var salary: String?
-//    var age: String?
-//    var img: String?
-//
-//    let status: String
-//    let data: [String]
-//
-//    enum CodingKeys: String, CodingKey {
-//        case name = "employee_name"
-//        case age
-//        case salary
-//        case id
-//        case img
-//    }
     var status: String?
     var data: [DataFetched]
-//
-//        var name: String?
-//        var city: String?
-//        var countryCode:String?
-//
-//        enum CodingKeys: String, CodingKey {
-//            case name = "name"
-//            case capital = "capital"
-//            case countryCode = "alpha3Code"
-//        }
-
     
 }
 
@@ -60,24 +33,70 @@ struct DataFetched: Codable {
 
 extension DataFetched: Displayable {
     var employeeId: Int {
-        id
+        get {
+            id
+        }
+        set(newId) {
+            id = newId
+        }
     }
     
     var employeeNameText: String {
-        name
+        get {
+            name
+        }
+        set(newName) {
+            name = newName
+        }
     }
     
     var employeeAgeText: Int {
-        age
+        get {
+            age
+        }
+        set(newAge) {
+            age = newAge
+        }
     }
     
     var employeeSalaryText: Int {
-        salary
+        get {
+            salary
+        }
+        set(newSalary) {
+            salary = newSalary
+        }
     }
     
     var employeeProfile: String {
-        img
+        get {
+            img
+        }
+        set(newImg) {
+            img = newImg
+        }
     }
+    
+    
+//    var employeeId: Int {
+//        id
+//    }
+//
+//    var employeeNameText: String {
+//        name
+//    }
+//
+//    var employeeAgeText: Int {
+//        age
+//    }
+//
+//    var employeeSalaryText: Int {
+//        salary
+//    }
+//
+//    var employeeProfile: String {
+//        img
+//    }
     
 }
 
@@ -86,19 +105,3 @@ struct inputData: Encodable {
     let salary: Int
     let age: Int
 }
-
-
-
-//    let id: String?
-//    let name: String?
-//    let salary: String?
-//    let age: String?
-//    let img: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id = "id"
-//        case name = "employee_name"
-//        case salary = "employee_salary"
-//        case age = "employee_age"
-//        case img = "profile_image"
-//    }

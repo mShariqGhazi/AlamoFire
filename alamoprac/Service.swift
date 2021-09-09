@@ -26,14 +26,12 @@ class Service {
             guard let fetchedData = response.data else {
                 self.apiCallBack?(nil, false, "")
                 return }
-            print(fetchedData)
-            
+//            print(fetchedData)
             do {
                 let decodedData = try JSONDecoder().decode(DataArray.self, from: fetchedData)
-//                print(decodedData)
                 self.apiCallBack?(decodedData.data, true, "")
             } catch {
-//                self.apiCallBack?(nil, false, error.localizedDescription)
+                self.apiCallBack?(nil, false, error.localizedDescription)
                 print(error)
             }
         }
@@ -56,19 +54,20 @@ class Service {
                    encoder: JSONParameterEncoder.default).responseJSON { response in
             do {
                 guard let jsonObject = try JSONSerialization.jsonObject(with: response.data!) as? [String: Any] else {
-                    print("Error: Cannot convert data to JSON object")
+//                    print("Error: Cannot convert data to JSON object")
                     return
                 }
                 guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
-                    print("Error: Cannot convert JSON object to Pretty JSON data")
+//                    print("Error: Cannot convert JSON object to Pretty JSON data")
                     return
                 }
                 guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
-                    print("Error: Could print JSON in String")
+//                    print("Error: Could print JSON in String")
                     return
                 }
 //                print(prettyPrintedJson)
                 str = prettyPrintedJson
+//                print(str)
                 print(str)
             } catch {
                 print("Error: Trying to convert JSON data to string")
@@ -78,30 +77,25 @@ class Service {
         return str
     }
     
-    func updateData() {
+    func updateData(empId: Int, nameInp: String, salaryInp: Int, ageInp: Int) {
         
-        struct inputData: Encodable {
-            let name: String
-            let salary: Int
-            let age: Int
-        }
+        let dataParams = inputData(name: nameInp, salary: salaryInp, age: ageInp)
         
-        let dataParams = inputData(name: "Nicole", salary: 45000, age: 23)
-        
-        AF.request(baseUrl + "/update/21",
-                   method: .post,
+        AF.request(baseUrl + "/update/" + "\(empId)",
+                   method: .put,
                    parameters: dataParams,
                    encoder: JSONParameterEncoder.default).response { response in
             debugPrint(response)
         }
     }
     
-    func deleteData() {
-        AF.request(baseUrl + "/delete/2", method: .delete).response { response in
+    
+    func deleteData(empId: Int) {
+        AF.request(baseUrl + "/delete/" + "\(empId)", method: .delete).response { response in
             debugPrint(response)
         }
     }
-            
+    
 }
 
 

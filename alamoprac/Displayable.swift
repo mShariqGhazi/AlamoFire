@@ -8,9 +8,9 @@
 import Foundation
 
 protocol Displayable {
-    var employeeId: Int { get }
-    var employeeNameText: String { get }
-    var employeeAgeText: Int { get }
-    var employeeSalaryText: Int { get }
-    var employeeProfile: String { get }
+    var employeeId: Int { get set }
+    var employeeNameText: String { get set }
+    var employeeAgeText: Int { get set }
+    var employeeSalaryText: Int { get set }
+    var employeeProfile: String { get set }
 }

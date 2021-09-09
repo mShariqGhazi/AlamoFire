@@ -7,14 +7,21 @@
 
 import UIKit
 
-class AddDataViewController: UIViewController {
+protocol DataAdditionsProtocol {
+    func sendDataToStore(_ name: String, _ salary: Int, _ age: Int)
+}
+
+class AddDataViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var addEmployeeName: UITextField!
     @IBOutlet weak var addEmployeeAge: UITextField!
     @IBOutlet weak var addEmployeeSalary: UITextField!
     
+    var name: String = ""
     var salary: Int = 0
     var age: Int = 0
+    
+    var delegate: DataAdditionsProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +33,18 @@ class AddDataViewController: UIViewController {
     }
 
     @IBAction func postButton(_ sender: Any) {
-//        sendData()
+        let sending = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
+        salary = Int(addEmployeeSalary.text!) ?? 0
+        age = Int(addEmployeeAge.text!) ?? 0
+        name = addEmployeeName.text ?? ""
+        let res: String = sending.sendData(nameInput: name, salaryInput: salary, ageInput: age)
+        self.delegate?.sendDataToStore(name, salary, age)
+        print(res)
     }
     
 //    func sendData(){
 //        let sending = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
 //        sending.sendData(nameInput: addEmployeeName.text ?? "", salaryInput: salary, ageInput: age)
 //    }
-    
-}
-
-extension UIViewController: UITextFieldDelegate {
-    
-    
     
 }

@@ -10,13 +10,13 @@
 		DA30D57526CE824200B22C48 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30D57426CE824200B22C48 /* TableViewController.swift */; };
 		DA30D57926CE96F500B22C48 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30D57826CE96F500B22C48 /* Displayable.swift */; };
 		DA31477826CF9AD700BF13B4 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA31477726CF9AD700BF13B4 /* AddDataViewController.swift */; };
-		DA31477A26CF9B0300BF13B4 /* InfoRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA31477926CF9B0300BF13B4 /* InfoRecievedViewController.swift */; };
 		DA59410126C64E4F00A809B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59410026C64E4F00A809B6 /* AppDelegate.swift */; };
 		DA59410326C64E4F00A809B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59410226C64E4F00A809B6 /* SceneDelegate.swift */; };
 		DA59410826C64E4F00A809B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA59410626C64E4F00A809B6 /* Main.storyboard */; };
 		DA59410A26C64E5000A809B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA59410926C64E5000A809B6 /* Assets.xcassets */; };
 		DA59410D26C64E5000A809B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA59410B26C64E5000A809B6 /* LaunchScreen.storyboard */; };
 		DA64941826CBACA300C0700F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA64941726CBACA200C0700F /* DetailsViewController.swift */; };
+		DADA4D3A26EA455C00D176EF /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA4D3926EA455C00D176EF /* UpdateViewController.swift */; };
 		DAF8DE1626CA4756000414A5 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8DE1526CA4756000414A5 /* Service.swift */; };
 		DAF8DE2226CA6661000414A5 /* DataArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8DE2126CA6661000414A5 /* DataArray.swift */; };
 		E110E20A46FDD028AC9ABEF1 /* Pods_alamoprac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4073B21E8EB19F6E684B0D /* Pods_alamoprac.framework */; };
@@ -29,7 +29,6 @@
 		DA30D57426CE824200B22C48 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DA30D57826CE96F500B22C48 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		DA31477726CF9AD700BF13B4 /* AddDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
-		DA31477926CF9B0300BF13B4 /* InfoRecievedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRecievedViewController.swift; sourceTree = "<group>"; };
 		DA5940FD26C64E4F00A809B6 /* alamoprac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alamoprac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA59410026C64E4F00A809B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA59410226C64E4F00A809B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		DA59410C26C64E5000A809B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA59410E26C64E5000A809B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA64941726CBACA200C0700F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		DADA4D3926EA455C00D176EF /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		DAF8DE1526CA4756000414A5 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		DAF8DE2126CA6661000414A5 /* DataArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,7 +92,7 @@
 				DA30D57426CE824200B22C48 /* TableViewController.swift */,
 				DA64941726CBACA200C0700F /* DetailsViewController.swift */,
 				DA31477726CF9AD700BF13B4 /* AddDataViewController.swift */,
-				DA31477926CF9B0300BF13B4 /* InfoRecievedViewController.swift */,
+				DADA4D3926EA455C00D176EF /* UpdateViewController.swift */,
 				DA59410626C64E4F00A809B6 /* Main.storyboard */,
 				DA59410926C64E5000A809B6 /* Assets.xcassets */,
 				DA59410B26C64E5000A809B6 /* LaunchScreen.storyboard */,
@@ -225,9 +225,9 @@
 			files = (
 				DA31477826CF9AD700BF13B4 /* AddDataViewController.swift in Sources */,
 				DAF8DE2226CA6661000414A5 /* DataArray.swift in Sources */,
+				DADA4D3A26EA455C00D176EF /* UpdateViewController.swift in Sources */,
 				DA30D57526CE824200B22C48 /* TableViewController.swift in Sources */,
 				DA30D57926CE96F500B22C48 /* Displayable.swift in Sources */,
-				DA31477A26CF9B0300BF13B4 /* InfoRecievedViewController.swift in Sources */,
 				DAF8DE1626CA4756000414A5 /* Service.swift in Sources */,
 				DA59410126C64E4F00A809B6 /* AppDelegate.swift in Sources */,
 				DA59410326C64E4F00A809B6 /* SceneDelegate.swift in Sources */,
