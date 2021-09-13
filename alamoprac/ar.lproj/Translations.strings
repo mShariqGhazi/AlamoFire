@@ -1,0 +1,10 @@
+/* 
+  Translations.strings
+  alamoprac
+
+  Created by Shariq Ghazi on 9/14/21.
+  
+*/
+"Add Employee Name" = "أضف اسم الموظف";
+"Add Employee Age" = "اضافة عمر الموظف";
+"Add Employee Salary" = "اضافة راتب الموظف";

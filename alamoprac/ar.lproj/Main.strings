@@ -1,0 +1,48 @@
+
+/* Class = "UIButton"; normalTitle = "Add Data"; ObjectID = "Btk-I9-DJi"; */
+"Btk-I9-DJi.normalTitle" = "Add Data";
+
+/* Class = "UINavigationItem"; title = "Employee Names"; ObjectID = "DOS-3T-u5t"; */
+"DOS-3T-u5t.title" = "Employee Names";
+
+/* Class = "UILabel"; text = "Age:"; ObjectID = "KQA-FM-GR1"; */
+"KQA-FM-GR1.text" = "Age:";
+
+/* Class = "UILabel"; text = "Update Salary"; ObjectID = "KX2-jI-tKK"; */
+"KX2-jI-tKK.text" = "Update Salary";
+
+/* Class = "UILabel"; text = "Update Age"; ObjectID = "OXf-o2-V5S"; */
+"OXf-o2-V5S.text" = "Update Age";
+
+/* Class = "UILabel"; text = "99"; ObjectID = "PVs-Q1-Nkf"; */
+"PVs-Q1-Nkf.text" = "99";
+
+/* Class = "UILabel"; text = "99"; ObjectID = "SZY-Q4-C1S"; */
+"SZY-Q4-C1S.text" = "99";
+
+/* Class = "UILabel"; text = "Add Employee Name:"; ObjectID = "UTO-yf-2br"; */
+"UTO-yf-2br.text" = "Add Employee Name:";
+
+/* Class = "UIButton"; normalTitle = "Post"; ObjectID = "Yhg-wi-XbD"; */
+"Yhg-wi-XbD.normalTitle" = "Post";
+
+/* Class = "UILabel"; text = "Employee Name"; ObjectID = "Ynm-nV-gGw"; */
+"Ynm-nV-gGw.text" = "Employee Name";
+
+/* Class = "UILabel"; text = "Update Name"; ObjectID = "Yuk-ce-7mJ"; */
+"Yuk-ce-7mJ.text" = "Update Name";
+
+/* Class = "UILabel"; text = "Salary:"; ObjectID = "cYL-Y4-ZoD"; */
+"cYL-Y4-ZoD.text" = "Salary:";
+
+/* Class = "UILabel"; text = "Add Employee Age:"; ObjectID = "t9h-v4-Itb"; */
+"t9h-v4-Itb.text" = "Add Employee Age:";
+
+/* Class = "UILabel"; text = "Add Employee Salary:"; ObjectID = "tBb-qZ-NcE"; */
+"tBb-qZ-NcE.text" = "Add Employee Salary:";
+
+/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "we6-dd-mMq"; */
+"we6-dd-mMq.normalTitle" = "Update";
+
+/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "zvA-eo-WiV"; */
+"zvA-eo-WiV.normalTitle" = "Update";

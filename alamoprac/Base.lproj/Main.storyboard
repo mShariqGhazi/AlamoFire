@@ -107,6 +107,18 @@
                                     <action selector="postButton:" destination="P9F-rP-WbV" eventType="touchUpInside" id="xlR-de-j8q"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pG5-1U-dMK">
+                                <rect key="frame" x="154" y="553" width="83" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Arabic">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="arabicPressed:" destination="P9F-rP-WbV" eventType="touchUpInside" id="Oaz-5T-LRk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wgk-Mo-VGZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -136,6 +148,10 @@
                         <outlet property="addEmployeeAge" destination="sRU-YY-oMk" id="hD6-M1-cgI"/>
                         <outlet property="addEmployeeName" destination="dLW-Hp-koS" id="Kxl-5e-DRo"/>
                         <outlet property="addEmployeeSalary" destination="bQx-Y3-4Wm" id="dnR-xb-HBK"/>
+                        <outlet property="employeeAgeLabel" destination="t9h-v4-Itb" id="sIC-kw-eIj"/>
+                        <outlet property="employeeNameLabel" destination="UTO-yf-2br" id="b86-SR-YoG"/>
+                        <outlet property="employeeSalaryLabel" destination="tBb-qZ-NcE" id="Gpm-31-fSl"/>
+                        <outlet property="languageButton" destination="pG5-1U-dMK" id="W0o-16-zzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNE-Vw-DTK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
