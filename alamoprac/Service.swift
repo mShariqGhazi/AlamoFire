@@ -33,6 +33,7 @@ class Service {
             } catch {
                 self.apiCallBack?(nil, false, error.localizedDescription)
                 print(error)
+                self.fetchData()
             }
         }
         
@@ -42,7 +43,7 @@ class Service {
         self.apiCallBack = callBack
     }
     
-    func sendData(nameInput: String, salaryInput: Int, ageInput: Int) -> String {
+    func sendData(nameInput: String, salaryInput: Int, ageInput: Int) -> Void {
         
         let dataParams = inputData(name: nameInput, salary: salaryInput, age: ageInput)
         
@@ -65,34 +66,38 @@ class Service {
 //                    print("Error: Could print JSON in String")
                     return
                 }
-//                print(prettyPrintedJson)
                 str = prettyPrintedJson
-//                print(str)
                 print(str)
             } catch {
                 print("Error: Trying to convert JSON data to string")
-                return
+                self.sendData(nameInput: nameInput, salaryInput: salaryInput, ageInput: ageInput)
             }
         }
-        return str
+//        return str
     }
     
     func updateData(empId: Int, nameInp: String, salaryInp: Int, ageInp: Int) {
         
         let dataParams = inputData(name: nameInp, salary: salaryInp, age: ageInp)
         
-        AF.request(baseUrl + "/update/" + "\(empId)",
+        let putRequest = AF.request(baseUrl + "/update/" + "\(empId)",
                    method: .put,
                    parameters: dataParams,
-                   encoder: JSONParameterEncoder.default).response { response in
-            debugPrint(response)
+                   encoder: JSONParameterEncoder.default).validate().response { (response) in
+//                    print(response)
         }
+        let status = putRequest.validate()
+        print(status)
     }
     
     
     func deleteData(empId: Int) {
-        AF.request(baseUrl + "/delete/" + "\(empId)", method: .delete).response { response in
-            debugPrint(response)
+//        let deleteMethod =
+            AF.request(baseUrl + "/delete/" + "\(empId)", method: .delete).response { response in
+                guard let data = response.data else { return }
+                if data.count != 82 {
+                    self.deleteData(empId: empId)
+                }
         }
     }
     

@@ -93,10 +93,9 @@ extension TableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsViewController" {
-            guard let destinationVC = segue.destination as? DetailsViewController else {
-                  return
-                }
-            destinationVC.data = employeeData
+            let destinationVC = segue.destination as? DetailsViewController
+            destinationVC?.data = employeeData
+            destinationVC?.delegate = self
         }
         if segue.identifier == "AddDataIdentifier" {
             let addVC = segue.destination as? AddDataViewController
@@ -106,8 +105,11 @@ extension TableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let service = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
+            service.deleteData(empId: dataArrayVariable[indexPath.row].id)
             dataArrayVariable.remove(at: indexPath.row)
             dataTableView.deleteRows(at: [indexPath], with: .fade)
+            
         }
     }
     
@@ -126,18 +128,28 @@ extension TableViewController: DataAdditionsProtocol {
 
 
 extension TableViewController: dataUpdateProtocol {
-    func update(_ i: Int, updatedAge: Int, updatedSalary: Int) {
-        
+    
+    func update(_ id: Int, _ name: String, _ updatedAge: Int, _ updatedSalary: Int) {
         let service = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
-        
-        if updatedAge != 0 {
-            dataArrayVariable[i].employeeAgeText = updatedAge
-            service.updateData(empId: i, nameInp: dataArrayVariable[i].name, salaryInp: dataArrayVariable[i].salary, ageInp: updatedAge)
-        }
-        if updatedSalary != 0 {
-            dataArrayVariable[i].employeeSalaryText = updatedSalary
-            service.updateData(empId: i, nameInp: dataArrayVariable[i].name, salaryInp: updatedSalary, ageInp: dataArrayVariable[i].age)
-        }
+            if updatedAge != 0 {
+                dataArrayVariable[id].age = updatedAge
+                service.updateData(empId: id, nameInp: dataArrayVariable[id].name, salaryInp: dataArrayVariable[id].salary, ageInp: updatedAge)
+                self.dataTableView.reloadData()
+            }
+            
+            if updatedSalary != 0 {
+                dataArrayVariable[id].salary = updatedSalary
+                service.updateData(empId: id, nameInp: dataArrayVariable[id].name, salaryInp: updatedSalary, ageInp: dataArrayVariable[id].age)
+                self.dataTableView.reloadData()
+            }
+            
+            if name != "" {
+                dataArrayVariable[id].name = name
+                service.updateData(empId: id, nameInp: name, salaryInp: dataArrayVariable[id].salary, ageInp: dataArrayVariable[id].age)
+                self.dataTableView.reloadData()
+            }
         
     }
+    
 }
+

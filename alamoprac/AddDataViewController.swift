@@ -39,9 +39,9 @@ class AddDataViewController: UIViewController, UITextFieldDelegate {
         salary = Int(addEmployeeSalary.text!) ?? 0
         age = Int(addEmployeeAge.text!) ?? 0
         name = addEmployeeName.text ?? ""
-        let res: String = sending.sendData(nameInput: name, salaryInput: salary, ageInput: age)
+        sending.sendData(nameInput: name, salaryInput: salary, ageInput: age)
         self.delegate?.sendDataToStore(name, salary, age)
-        print(res)
+//        print(res)
         self.navigationController?.popViewController(animated: true)
     }
     
