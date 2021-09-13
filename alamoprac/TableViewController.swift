@@ -71,6 +71,7 @@ class TableViewController: UITableViewController {
 extension TableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        dataArrayVariable = dataArrayVariable.sorted(by: { $0.id > $1.id })
         return dataArrayVariable.count
     }
     
@@ -97,6 +98,10 @@ extension TableViewController {
                 }
             destinationVC.data = employeeData
         }
+        if segue.identifier == "AddDataIdentifier" {
+            let addVC = segue.destination as? AddDataViewController
+            addVC?.delegate = self
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -106,21 +111,33 @@ extension TableViewController {
         }
     }
     
-    
 }
 
 
 extension TableViewController: DataAdditionsProtocol {
     
     func sendDataToStore(_ name: String, _ salary: Int, _ age: Int) {
-        var temp = [DataFetched]()
-        temp[0].age = age
-        temp[0].name = name
-        temp[0].salary = salary
-        temp[0].id = dataArrayVariable.count + 1
-        temp[0].img  = ""
-        self.dataArrayVariable.append(temp[0])
+        let temp = DataFetched.init(id: (dataArrayVariable.count + 1), name: name, salary: salary, age: age, img: "")
+        dataArrayVariable.append(temp)
         self.dataTableView.reloadData()
     }
     
+}
+
+
+extension TableViewController: dataUpdateProtocol {
+    func update(_ i: Int, updatedAge: Int, updatedSalary: Int) {
+        
+        let service = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
+        
+        if updatedAge != 0 {
+            dataArrayVariable[i].employeeAgeText = updatedAge
+            service.updateData(empId: i, nameInp: dataArrayVariable[i].name, salaryInp: dataArrayVariable[i].salary, ageInp: updatedAge)
+        }
+        if updatedSalary != 0 {
+            dataArrayVariable[i].employeeSalaryText = updatedSalary
+            service.updateData(empId: i, nameInp: dataArrayVariable[i].name, salaryInp: updatedSalary, ageInp: dataArrayVariable[i].age)
+        }
+        
+    }
 }

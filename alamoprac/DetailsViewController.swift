@@ -23,12 +23,35 @@ class DetailsViewController: UIViewController {
     }
     
     private func commonInit() {
-      guard let data = data else { return }
+        guard let data = data else { return }
       
         employeeName.text = data.employeeNameText
         employeeAge.text = String(data.employeeAgeText)
         employeeSalary.text = String(data.employeeSalaryText)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UpdateControllerSegue" {
+            guard let updateVC = segue.destination as? UpdateViewController else {
+                  return
+                }
+            guard let data = data else { return }
+            updateVC.indexRow = data.employeeId
+            updateVC.delegate = self
+        }
+    }
+    
 
+}
+
+extension DetailsViewController: dataUpdateProtocol {
+    func update(_ i: Int, updatedAge: Int, updatedSalary: Int) {
+        if updatedAge != 0 {
+            employeeAge.text = String(updatedAge)
+        }
+        if updatedSalary != 0 {
+            employeeSalary.text = String(updatedSalary)
+        }
+        
+    }
 }

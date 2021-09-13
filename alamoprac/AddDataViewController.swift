@@ -31,6 +31,8 @@ class AddDataViewController: UIViewController, UITextFieldDelegate {
         addEmployeeSalary.delegate = self
         
     }
+    
+    
 
     @IBAction func postButton(_ sender: Any) {
         let sending = Service(urlInput: "http://dummy.restapiexample.com/api/v1")
@@ -40,6 +42,7 @@ class AddDataViewController: UIViewController, UITextFieldDelegate {
         let res: String = sending.sendData(nameInput: name, salaryInput: salary, ageInput: age)
         self.delegate?.sendDataToStore(name, salary, age)
         print(res)
+        self.navigationController?.popViewController(animated: true)
     }
     
 //    func sendData(){
